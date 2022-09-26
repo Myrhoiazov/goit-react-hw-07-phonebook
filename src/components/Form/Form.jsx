@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import { addItem } from 'redux/itemsSlice';
-import { useDispatch, useSelector } from 'react-redux';
+// import { addItem } from 'redux/contacts/contact-Slice';
+import { useSelector } from 'react-redux';
 import s from './Form.module.css';
 import { toast } from 'react-toastify';
-const shortid = require('shortid');
+// const shortid = require('shortid');
 
 const Form = () => {
   const [name, setUserName] = useState('');
   const [number, setNumber] = useState('');
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const contacts = useSelector(state => state.items);
 
   const handleChangeUser = ev => {
@@ -40,7 +40,7 @@ const Form = () => {
       return;
     }
 
-    dispatch(addItem({ name, number, id: shortid.generate() }));
+    // dispatch(addItem({ name, number, id: shortid.generate() }));
     setNumber('');
     setUserName('');
   };

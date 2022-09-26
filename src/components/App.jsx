@@ -5,8 +5,12 @@ import Container from './Container/Container.jsx';
 import ContactList from './Contacts/ContactList.jsx';
 import FilterList from './Filter/FilterList.jsx';
 
+// import { fetchAllContact } from 'redux/contacts/operations-contact.js';
+
+// console.log(fetchAllContact());
+
+
 export const App = () => {
-  
   return (
     <Container>
       <Form />
