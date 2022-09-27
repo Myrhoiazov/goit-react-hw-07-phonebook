@@ -11,9 +11,10 @@ const ContactList = () => {
   // const filter = useSelector(state => state.filter);
   const dispatch = useDispatch();
 
+
   useEffect(() => {
     dispatch(fetchAllContact());
-  }, [dispatch, contacts]);
+  }, [dispatch]);
 
   // const filteredContacts = contacts.filter(user =>
   //   user.name.toLowerCase().includes(filter.toLowerCase())

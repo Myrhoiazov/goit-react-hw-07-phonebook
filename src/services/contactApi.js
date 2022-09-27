@@ -19,5 +19,5 @@ export const getPostContact = async (item) => {
 
 export const getDeleteContact = async (id) => {
   const response = await requestApi.delete(`/${id}`)
-
+  return response;
 }

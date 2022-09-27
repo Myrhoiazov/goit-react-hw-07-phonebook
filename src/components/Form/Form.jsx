@@ -4,7 +4,7 @@ import { addContact } from 'redux/contacts/operations-contact';
 import s from './Form.module.css';
 import { toast } from 'react-toastify';
 import { selectContact } from 'redux/contacts/selector-contacts';
-const shortid = require('shortid');
+// const shortid = require('shortid');
 
 const Form = () => {
   const [name, setUserName] = useState('');
@@ -41,7 +41,7 @@ const Form = () => {
       return;
     }
 
-    dispatch(addContact({ name, number, id: shortid.generate() }));
+    dispatch(addContact({ name, number}));
     setNumber('');
     setUserName('');
   };

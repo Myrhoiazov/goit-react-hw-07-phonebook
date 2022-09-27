@@ -1,10 +1,11 @@
 import s from '../Filter/Filter.module.css';
 // import PropTypes from 'prop-types';
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { setFilter } from 'redux/contacts/filter-Slice';
+import { selectContact } from 'redux/contacts/selector-contacts';
 
 const FilterList = () => {
-  // const contacts = useSelector(state => state.items);
+  const contacts = useSelector(selectContact);
   // const filter = useSelector(state => state.filter);
   const dispatch = useDispatch()
 
@@ -12,9 +13,9 @@ const FilterList = () => {
     dispatch(setFilter(ev.target.value));
   };
 
-  // if (contacts.length === 0) {
-  //   return;
-  // }
+  if (contacts.length === 0) {
+    return;
+  }
 
   return (
     <div>
