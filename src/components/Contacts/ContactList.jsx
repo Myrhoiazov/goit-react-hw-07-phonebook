@@ -23,10 +23,7 @@ const ContactList = () => {
   const filteredContacts = contacts.filter(user =>
     user.name.toLowerCase().includes(filter.toLowerCase())
   );
-
-  console.log(filteredContacts);
-  console.log(filter)
-
+  
   if (contacts.length === 0) {
     return;
   }
