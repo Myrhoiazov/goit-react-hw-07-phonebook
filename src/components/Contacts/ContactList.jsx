@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import s from '../Contacts/ContactList.module.css';
 import { useEffect } from 'react';
 import { fetchAllContact } from '../../redux/contacts/operations-contact';
+import { selectContact } from 'redux/contacts/selector-contacts';
+import { deleteContact } from '../../redux/contacts/operations-contact';
 
 const ContactList = () => {
-  const contacts = useSelector(state => state.contacts.contacts);
+  const contacts = useSelector(selectContact);
   // const filter = useSelector(state => state.filter);
   const dispatch = useDispatch();
-
 
   useEffect(() => {
     dispatch(fetchAllContact());
@@ -33,7 +34,7 @@ const ContactList = () => {
             <button
               className={s.btn}
               type="button"
-              // onClick={() => dispatch(deleteItem(id))}
+              onClick={() => dispatch(deleteContact(id))}
             >
               Delete
             </button>

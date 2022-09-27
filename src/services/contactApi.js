@@ -11,12 +11,13 @@ export const getAllContact = async () => {
   return response
 }
 
-// export const postContact = async (item) => {
-//   const response = await contactsApi.post('', item)
+export const getPostContact = async (item) => {
+  const response = await requestApi.post('', item)
+  return response;
 
-// }
+}
 
-// export const deleteContact = async (id) => {
-//   const response = await contactsApi.delete(`/${id}`)
+export const getDeleteContact = async (id) => {
+  const response = await requestApi.delete(`/${id}`)
 
-// }
+}
