@@ -1,19 +1,21 @@
 import s from '../Filter/Filter.module.css';
 // import PropTypes from 'prop-types';
-import { useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from 'redux/contacts/contact-Slice';
 import { selectContact } from 'redux/contacts/selector-contacts';
+import Loader from 'components/Loader';
 
 const FilterList = () => {
   const contacts = useSelector(selectContact);
   const filter = useSelector(state => state.contacts.filter);
-  const dispatch = useDispatch()
+  const isLoading = useSelector(state => state.contacts.isLoading);
+  const dispatch = useDispatch();
 
   const handleFilterValue = ev => {
-    if(ev.target.value === ''){
-      return
+    if (ev.target.value === '') {
+      return;
     }
-    
+
     dispatch(setFilter(ev.target.value));
   };
 
@@ -23,6 +25,7 @@ const FilterList = () => {
 
   return (
     <div>
+      {isLoading && <Loader />}
       <label>
         <span className={s.label}>Find contacts by name</span>
         <input

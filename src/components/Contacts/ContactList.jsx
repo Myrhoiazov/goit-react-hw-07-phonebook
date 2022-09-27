@@ -5,10 +5,12 @@ import { useEffect } from 'react';
 import { fetchAllContact } from '../../redux/contacts/operations-contact';
 import { selectContact } from 'redux/contacts/selector-contacts';
 import { deleteContact } from '../../redux/contacts/operations-contact';
+import Loader from 'components/Loader';
 
 const ContactList = () => {
   const contacts = useSelector(selectContact);
   const filter = useSelector(state => state.contacts.filter);
+  const isLoading = useSelector(state => state.contacts.isLoading)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,6 +27,7 @@ const ContactList = () => {
 
   return (
     <div>
+      {isLoading && <Loader/>}
       <ul className={s.list}>
         {filteredContacts.map(({ name, number, id }) => (
           <li className={s.item} key={id}>
