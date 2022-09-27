@@ -13,13 +13,19 @@ const ContactList = () => {
   const isLoading = useSelector(state => state.contacts.isLoading)
   const dispatch = useDispatch();
 
+
+
   useEffect(() => {
     dispatch(fetchAllContact());
-  }, [dispatch]);
+    // eslint-disable-next-line
+  }, []);
 
   const filteredContacts = contacts.filter(user =>
     user.name.toLowerCase().includes(filter.toLowerCase())
   );
+
+  console.log(filteredContacts);
+  console.log(filter)
 
   if (contacts.length === 0) {
     return;

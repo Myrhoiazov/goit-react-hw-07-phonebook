@@ -12,11 +12,7 @@ const FilterList = () => {
   const dispatch = useDispatch();
 
   const handleFilterValue = ev => {
-    if (ev.target.value === '') {
-      return;
-    }
-
-    dispatch(setFilter(ev.target.value));
+    dispatch(setFilter(ev.target.value.trim()));
   };
 
   if (contacts.length === 0) {
