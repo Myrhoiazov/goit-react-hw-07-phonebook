@@ -8,17 +8,16 @@ import { deleteContact } from '../../redux/contacts/operations-contact';
 
 const ContactList = () => {
   const contacts = useSelector(selectContact);
-  // const filter = useSelector(state => state.filter);
+  const filter = useSelector(state => state.contacts.filter);
   const dispatch = useDispatch();
-
 
   useEffect(() => {
     dispatch(fetchAllContact());
   }, [dispatch]);
 
-  // const filteredContacts = contacts.filter(user =>
-  //   user.name.toLowerCase().includes(filter.toLowerCase())
-  // );
+  const filteredContacts = contacts.filter(user =>
+    user.name.toLowerCase().includes(filter.toLowerCase())
+  );
 
   if (contacts.length === 0) {
     return;
@@ -27,7 +26,7 @@ const ContactList = () => {
   return (
     <div>
       <ul className={s.list}>
-        {contacts.map(({ name, number, id }) => (
+        {filteredContacts.map(({ name, number, id }) => (
           <li className={s.item} key={id}>
             <p className={s.text}>
               {name} <span className={s.tel}>Tel: {number}</span>

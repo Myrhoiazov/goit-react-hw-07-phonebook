@@ -10,6 +10,15 @@ const itemsSlice = createSlice({
   name: 'contacts',
   initialState: initialContact,
 
+  reducers: {
+    setFilter: (state, action) => {
+      console.log(state.filter);
+      state.filter = action.payload
+      console.log(state.filter);
+    },
+
+  },
+
   extraReducers: {
     [fetchAllContact.pending]: state => {
       state.isLoading = true;
@@ -51,3 +60,4 @@ const itemsSlice = createSlice({
 });
 
 export const contactsReducer = itemsSlice.reducer;
+export const { setFilter } = itemsSlice.actions;
